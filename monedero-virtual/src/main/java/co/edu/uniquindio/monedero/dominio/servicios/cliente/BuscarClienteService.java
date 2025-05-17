@@ -1,6 +1,7 @@
 package co.edu.uniquindio.monedero.dominio.servicios.cliente;
 
 import co.edu.uniquindio.monedero.dominio.dto.cliente.ClienteDTO;
+import co.edu.uniquindio.monedero.dominio.exception.NoExisteClienteException;
 import co.edu.uniquindio.monedero.dominio.puerto.cliente.dao.ClienteDao;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class BuscarClienteService {
     public ClienteDTO buscarPorCedula(String cedula) {
         ClienteDTO cliente = clienteDao.buscarPorCedula(cedula);
         if (cliente == null) {
-            throw new IllegalArgumentException("El cliente no existe con la cédula: " + cedula);
+            throw new NoExisteClienteException("El cliente no existe con la cédula: " + cedula);
         }
         return cliente;
     }

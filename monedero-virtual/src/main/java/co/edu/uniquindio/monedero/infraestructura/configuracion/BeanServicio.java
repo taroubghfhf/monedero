@@ -6,8 +6,10 @@ import co.edu.uniquindio.monedero.dominio.puerto.cuenta.dao.CuentaDao;
 import co.edu.uniquindio.monedero.dominio.puerto.cuenta.repositorio.CuentaRepositorio;
 import co.edu.uniquindio.monedero.dominio.servicios.cliente.BuscarClienteService;
 import co.edu.uniquindio.monedero.dominio.servicios.cliente.CrearClienteService;
-import co.edu.uniquindio.monedero.dominio.servicios.cuenta.CrearCuentaService;
-import co.edu.uniquindio.monedero.dominio.servicios.cuenta.TransaccionDepositoCuentaService;
+import co.edu.uniquindio.monedero.dominio.servicios.cuenta.*;
+import co.edu.uniquindio.monedero.dominio.servicios.puntos.GestorPuntosService;
+import co.edu.uniquindio.monedero.infraestructura.arbol.ArbolPuntos;
+import co.edu.uniquindio.monedero.infraestructura.arbolbalanceado.ArbolBalanceado;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,7 +17,46 @@ import org.springframework.context.annotation.Configuration;
 public class BeanServicio {
 
     @Bean
-    public CrearCuentaService crearCuentaService(CuentaRepositorio cuentaRepositorio, ClienteDao clienteDao, CuentaDao cuentaDao) {
+    public ArbolPuntos arbolPuntos() {
+        return new ArbolPuntos();
+    }
+
+    @Bean
+    public ArbolBalanceado arbolBalanceado() {
+        return new ArbolBalanceado();
+    }
+
+    @Bean
+    public GestorPuntosService gestorPuntosService(CuentaDao cuentaDao) {
+        return new GestorPuntosService(cuentaDao);
+    }
+
+    @Bean
+    public TransaccionDepositoCuentaService transaccionDepositoCuentaService(
+            CuentaDao cuentaDao,
+            GestorPuntosService gestorPuntosService) {
+        return new TransaccionDepositoCuentaService(cuentaDao, gestorPuntosService);
+    }
+
+    @Bean
+    public TransaccionRetiroCuentaService transaccionRetiroCuentaService(
+            CuentaDao cuentaDao,
+            GestorPuntosService gestorPuntosService) {
+        return new TransaccionRetiroCuentaService(cuentaDao, gestorPuntosService);
+    }
+
+    @Bean
+    public TransferenciaService transferenciaService(
+            CuentaDao cuentaDao,
+            GestorPuntosService gestorPuntosService) {
+        return new TransferenciaService(cuentaDao, gestorPuntosService);
+    }
+
+    @Bean
+    public CrearCuentaService crearCuentaService(
+            CuentaRepositorio cuentaRepositorio,
+            ClienteDao clienteDao,
+            CuentaDao cuentaDao) {
         return new CrearCuentaService(cuentaRepositorio, clienteDao, cuentaDao);
     }
 
@@ -25,13 +66,14 @@ public class BeanServicio {
     }
 
     @Bean
-    public CrearClienteService crearClienteService(ClienteDao clienteDao, ClienteRepositorio clienteRepositorio) {
+    public CrearClienteService crearClienteService(
+            ClienteDao clienteDao,
+            ClienteRepositorio clienteRepositorio) {
         return new CrearClienteService(clienteDao, clienteRepositorio);
     }
 
     @Bean
-    public TransaccionDepositoCuentaService transaccionDepositoCuentaService(CuentaDao cuentaDao) {
-        return new TransaccionDepositoCuentaService(cuentaDao);
+    public BuscarCuentaService buscarCuentaService(CuentaDao cuentaDao) {
+        return new BuscarCuentaService(cuentaDao);
     }
-
 }

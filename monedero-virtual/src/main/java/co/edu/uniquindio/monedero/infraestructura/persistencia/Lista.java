@@ -3,9 +3,7 @@ package co.edu.uniquindio.monedero.infraestructura.persistencia;
 import co.edu.uniquindio.monedero.dominio.modelo.Cliente;
 import co.edu.uniquindio.monedero.infraestructura.listasimple.ListaSimple;
 
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.function.Predicate;
 
 public class Lista {
 

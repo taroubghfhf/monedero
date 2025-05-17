@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,9 +12,9 @@ public class TransaccionTransferencia extends Transaccion {
     private double comision;
     private int numeroDePuntos;
 
-    public TransaccionTransferencia(double monto, String id, LocalDateTime fecha, double comision, int numeroDePuntos) {
-        super(monto, id, fecha);
-        this.comision = comision;
-        this.numeroDePuntos = numeroDePuntos;
+    public TransaccionTransferencia(double monto) {
+        super(monto, TipoTransaccion.TRANSFERENCIA_SALIENTE);
+        this.comision = 0.0;
+        this.numeroDePuntos = 0;
     }
 }

@@ -24,6 +24,6 @@ public class ClienteImplementacionDAO implements ClienteDao {
         }
 
         return new ClienteDTO(cliente.getNombre(), cliente.getApellido(), cliente.getCedula(),
-                cliente.getTelefono(), cliente.getCorreo());
+                cliente.getCorreo(), cliente.getTelefono());
     }
 }

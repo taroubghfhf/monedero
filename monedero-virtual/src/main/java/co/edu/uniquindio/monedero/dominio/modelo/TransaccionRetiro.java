@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,9 +12,11 @@ public class TransaccionRetiro extends Transaccion {
     private double comision;
     private int numeroDePuntos;
 
-    public TransaccionRetiro(double monto, String id, LocalDateTime fecha, double comision, int numeroDePuntos) {
-        super(monto, id, fecha);
-        this.comision = comision;
-        this.numeroDePuntos = numeroDePuntos;
+    public TransaccionRetiro(double monto) {
+        super(monto , TipoTransaccion.RETIRO);
+        this.comision = 0.0;
+        this.numeroDePuntos = 0;
     }
+
+   
 }

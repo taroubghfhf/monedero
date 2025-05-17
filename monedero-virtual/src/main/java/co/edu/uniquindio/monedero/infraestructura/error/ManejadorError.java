@@ -1,9 +1,8 @@
 package co.edu.uniquindio.monedero.infraestructura.error;
 
 
-import co.edu.uniquindio.monedero.dominio.exception.ClienteYaExisteException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import co.edu.uniquindio.monedero.dominio.exception.*;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,6 +20,11 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
 
     public ManejadorError() {
         CODIGOS_ESTADO.put(ClienteYaExisteException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(NoExisteClienteException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(CuentaNoExisteException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(SaldoInsuficienteException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(TransaccionInvalidaException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
+        CODIGOS_ESTADO.put(YaExisteCuentaException.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
     }
 
     @ExceptionHandler(Exception.class)

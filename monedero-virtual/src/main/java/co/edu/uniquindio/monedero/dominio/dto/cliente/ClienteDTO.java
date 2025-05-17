@@ -1,6 +1,5 @@
 package co.edu.uniquindio.monedero.dominio.dto.cliente;
 
-import co.edu.uniquindio.monedero.dominio.modelo.Cuenta;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -25,7 +25,4 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public Cliente(String cedula) {
-        this.cedula = cedula;
-    }
 }

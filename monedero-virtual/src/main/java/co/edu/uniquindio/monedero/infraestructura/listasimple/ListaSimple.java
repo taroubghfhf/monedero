@@ -65,4 +65,8 @@ public class ListaSimple<T> {
             actual = actual.getSiguiente();
         }
     }
+
+    public ListaSimpleNodo<T> getCabeza() {
+        return cabeza;
+    }
 }
