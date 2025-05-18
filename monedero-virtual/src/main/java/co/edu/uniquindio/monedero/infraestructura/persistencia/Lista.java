@@ -3,6 +3,8 @@ package co.edu.uniquindio.monedero.infraestructura.persistencia;
 import co.edu.uniquindio.monedero.dominio.modelo.Cliente;
 import co.edu.uniquindio.monedero.infraestructura.listasimple.ListaSimple;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Lista {
@@ -35,4 +37,9 @@ public class Lista {
         return clienteMonedero;
     }
 
+    public List<Cliente> obtenerTodosLosClientes() {
+        List<Cliente> listaClientes = new ArrayList<>();
+        clientes.recorrer(listaClientes::add);
+        return listaClientes;
+    }
 }

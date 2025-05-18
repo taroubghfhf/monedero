@@ -1,0 +1,364 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 60px; /* Add space for fixed navbar */
+}
+
+/* Navbar styles */
+.navbar {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+  padding: 0.7rem 1rem;
+  margin: 0 0.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.page-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.header-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.icon-md {
+  width: 32px;
+  height: 32px;
+}
+
+.card-info {
+  border-left: 4px solid #17a2b8;
+  background-color: #f8f9fa;
+}
+
+.tab-content {
+  padding-top: 1.5rem;
+}
+
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.alert {
+  margin-top: 15px;
+}
+
+.table {
+  background-color: white;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.badge-success {
+  background-color: #28a745;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+}
+
+.transaction-card {
+  transition: transform 0.3s;
+}
+
+.transaction-card:hover {
+  transform: translateY(-5px);
+}
+
+.points-display {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Animaciones para transacciones */
+.transaction-animation {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.transaction-progress .spinner-grow {
+  animation-duration: 1s;
+}
+
+.transaction-success i,
+.transaction-error i {
+  animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos para la página de puntos */
+.points-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.points-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.points-card .card-header {
+  background-color: #6f42c1;
+  color: white;
+  padding: 15px 20px;
+  border-bottom: none;
+}
+
+.points-counter {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #6f42c1;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.points-label {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.progress-points {
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.benefit-card {
+  border-left: 4px solid #6f42c1;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  color: #6f42c1;
+  margin-right: 15px;
+}
+
+.tier-badge {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.tier-silver {
+  background-color: #adb5bd;
+  color: white;
+}
+
+.tier-gold {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.tier-platinum {
+  background-color: #6f42c1;
+  color: white;
+}
+
+.tier-bronze {
+  background-color: #cd7f32;
+  color: white;
+}
+
+.bg-purple {
+  background-color: #6f42c1;
+}
+
+.btn-outline-purple {
+  color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+.btn-outline-purple:hover {
+  color: #fff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+}
+
+/* Estilos para tarjetas de clientes */
+.client-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.client-card .card-header {
+  background-color: #0d6efd;
+  color: white;
+  padding: 15px 20px;
+  border-bottom: none;
+}
+
+/* Estilos para tarjetas de cuentas */
+.account-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.account-card .card-header {
+  background-color: #0d6efd;
+  color: white;
+  padding: 15px 20px;
+  border-bottom: none;
+}
+
+/* Estilos para tarjetas de transacciones */
+.transaction-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transaction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.transaction-card .card-header {
+  padding: 15px 20px;
+  border-bottom: none;
+}
+
+/* Estilos para tarjetas internas en transacciones */
+.transaction-inner-card {
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.transaction-inner-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.transaction-inner-card .card-header {
+  border-bottom: none;
+}
+
+.transfer-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transfer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para botones y elementos purpura (programación de transacciones) */
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border-color: #6f42c1;
+}
+
+.btn-purple:hover {
+  background-color: #5a32a3;
+  color: white;
+  border-color: #5a32a3;
+}
+
+/* Animación para transacciones programadas */
+.scheduled-transaction {
+  position: relative;
+  border-left: 4px solid #6f42c1;
+  transition: all 0.3s ease;
+}
+
+.scheduled-transaction:hover {
+  transform: translateX(3px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scheduled-transaction .badge-schedule {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 12px;
+  padding: 3px 10px;
+} 

@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cuenta")
+@RequestMapping("/api/cuenta")
 public class ControladorComandoCuenta {
 
     private final ManejadorCrearCuenta manejadorCrearCuenta;

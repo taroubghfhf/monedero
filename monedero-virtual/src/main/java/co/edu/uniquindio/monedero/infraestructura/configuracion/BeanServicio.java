@@ -10,10 +10,16 @@ import co.edu.uniquindio.monedero.dominio.servicios.cuenta.*;
 import co.edu.uniquindio.monedero.dominio.servicios.puntos.GestorPuntosService;
 import co.edu.uniquindio.monedero.infraestructura.arbol.ArbolPuntos;
 import co.edu.uniquindio.monedero.infraestructura.arbolbalanceado.ArbolBalanceado;
+import co.edu.uniquindio.monedero.dominio.puerto.transaccion.TransaccionProgramadaRepositorio;
+import co.edu.uniquindio.monedero.dominio.servicios.transaccion.GestorTransaccionesProgramadasService;
+import co.edu.uniquindio.monedero.infraestructura.adaptador.transaccion.TransaccionProgramadaRepositorioImpl;
+import co.edu.uniquindio.monedero.infraestructura.cola.ColaPrioridadTransacciones;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
+@EnableScheduling
 public class BeanServicio {
 
     @Bean
@@ -75,5 +81,26 @@ public class BeanServicio {
     @Bean
     public BuscarCuentaService buscarCuentaService(CuentaDao cuentaDao) {
         return new BuscarCuentaService(cuentaDao);
+    }
+
+    @Bean
+    public ColaPrioridadTransacciones colaPrioridadTransacciones() {
+        return new ColaPrioridadTransacciones();
+    }
+
+    @Bean
+    public GestorTransaccionesProgramadasService gestorTransaccionesProgramadasService(
+            TransaccionProgramadaRepositorio repositorio,
+            TransaccionDepositoCuentaService depositoService,
+            TransaccionRetiroCuentaService retiroService,
+            TransferenciaService transferenciaService,
+            CuentaDao cuentaDao) {
+        return new GestorTransaccionesProgramadasService(
+            repositorio,
+            depositoService,
+            retiroService,
+            transferenciaService,
+            cuentaDao
+        );
     }
 }

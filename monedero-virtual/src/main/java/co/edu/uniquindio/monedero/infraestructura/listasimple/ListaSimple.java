@@ -1,6 +1,8 @@
 package co.edu.uniquindio.monedero.infraestructura.listasimple;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class ListaSimple<T> {
 
@@ -29,15 +31,15 @@ public class ListaSimple<T> {
         actual.setSiguiente(nuevo);
     }
 
-    public T buscar(java.util.function.Predicate<T> criterio) {
+    public T buscar(Predicate<T> predicado) {
         ListaSimpleNodo<T> actual = cabeza;
         while (actual != null) {
-            if (criterio.test(actual.getDato())) {
+            if (predicado.test(actual.getDato())) {
                 return actual.getDato();
             }
             actual = actual.getSiguiente();
         }
-        throw new NoSuchElementException("No encontrado con el criterio especificado");
+        throw new NoSuchElementException("No se encontró el elemento");
     }
 
     public void eliminar(T dato) {
@@ -58,10 +60,10 @@ public class ListaSimple<T> {
         actual.setSiguiente(actual.getSiguiente().getSiguiente());
     }
 
-    public void recorrer() {
+    public void recorrer(Consumer<T> consumer) {
         ListaSimpleNodo<T> actual = cabeza;
         while (actual != null) {
-            System.out.println(actual.getDato());
+            consumer.accept(actual.getDato());
             actual = actual.getSiguiente();
         }
     }

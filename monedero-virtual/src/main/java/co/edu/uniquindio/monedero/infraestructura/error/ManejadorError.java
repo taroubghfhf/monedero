@@ -1,6 +1,5 @@
 package co.edu.uniquindio.monedero.infraestructura.error;
 
-
 import co.edu.uniquindio.monedero.dominio.exception.*;
 
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @ControllerAdvice
 public class ManejadorError extends ResponseEntityExceptionHandler {
 
-    private static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "OcurriÃ³ un error favor contactar al administrador.";
+    private static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error favor contactar al administrador.";
 
     private static final ConcurrentHashMap<String, Integer> CODIGOS_ESTADO = new ConcurrentHashMap<>();
 
@@ -45,7 +44,4 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
 
         return resultado;
     }
-
-
-
 }

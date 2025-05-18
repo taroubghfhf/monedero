@@ -17,7 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/transaccion")
+@RequestMapping("/api/transaccion")
 public class ControladorComandoTransaccion {
 
 

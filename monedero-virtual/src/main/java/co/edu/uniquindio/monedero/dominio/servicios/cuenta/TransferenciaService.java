@@ -16,6 +16,7 @@ public class TransferenciaService {
 
     private final CuentaDao cuentaDao;
     private final GestorPuntosService gestorPuntosService;
+    private static final double PORCENTAJE_COMISION = 0.20; // 20% de comisión
 
     public TransferenciaService(CuentaDao cuentaDao, GestorPuntosService gestorPuntosService) {
         this.cuentaDao = cuentaDao;
@@ -28,7 +29,12 @@ public class TransferenciaService {
         Cuenta cuentaOrigen = obtenerYValidarCuenta(cedulaClienteOrigen, "origen");
         Cuenta cuentaDestino = obtenerYValidarCuenta(cedulaClienteDestino, "destino");
 
-        validarSaldoSuficiente(cuentaOrigen, monto);
+        // Calcular comisión con beneficio de reducción si aplica
+        double comisionBase = monto * PORCENTAJE_COMISION;
+        double comision = aplicarDescuentoComision(cedulaClienteOrigen, comisionBase);
+        double montoTotal = monto + comision;
+
+        validarSaldoSuficiente(cuentaOrigen, montoTotal);
         validarTransferenciaPropia(cedulaClienteOrigen, cedulaClienteDestino);
 
         RangoCliente rangoOrigen = gestorPuntosService.consultarRango(cedulaClienteOrigen);
@@ -36,8 +42,20 @@ public class TransferenciaService {
         LocalDateTime fechaTransaccion = LocalDateTime.now();
         String idTransaccion = UUID.randomUUID().toString();
 
-        realizarTransferencia(cuentaOrigen, cuentaDestino, monto, fechaTransaccion, idTransaccion);
+        realizarTransferencia(cuentaOrigen, cuentaDestino, monto, comision, fechaTransaccion, idTransaccion);
         procesarPuntosTransferencia(cedulaClienteOrigen, monto);
+    }
+    
+    private double aplicarDescuentoComision(String cedulaCliente, double comisionBase) {
+        // Verificar si el cliente tiene el beneficio de reducción de comisión activo
+        double descuento = gestorPuntosService.obtenerDescuentoTransferencia(cedulaCliente);
+        
+        if (descuento > 0) {
+            // Aplicar el descuento a la comisión base
+            return comisionBase * (1 - descuento);
+        }
+        
+        return comisionBase;
     }
 
     private void validarDatosTransferencia(String cedulaOrigen, String cedulaDestino, double monto) {
@@ -62,11 +80,11 @@ public class TransferenciaService {
         return cuenta;
     }
 
-    private void validarSaldoSuficiente(Cuenta cuenta, double monto) {
-        if (cuenta.getSaldoCuenta() < monto) {
+    private void validarSaldoSuficiente(Cuenta cuenta, double montoTotal) {
+        if (cuenta.getSaldoCuenta() < montoTotal) {
             throw new SaldoInsuficienteException(
-                String.format("Saldo insuficiente. Saldo actual: %.2f, Monto requerido: %.2f",
-                    cuenta.getSaldoCuenta(), monto)
+                String.format("Saldo insuficiente. Saldo actual: %.2f, Monto requerido (con comisión): %.2f",
+                    cuenta.getSaldoCuenta(), montoTotal)
             );
         }
     }
@@ -83,16 +101,15 @@ public class TransferenciaService {
             Cuenta cuentaOrigen,
             Cuenta cuentaDestino,
             double monto,
+            double comision,
             LocalDateTime fechaTransaccion,
             String idTransaccion) {
 
-        // Crear transacción saliente
-        Transaccion transaccionSaliente = new Transaccion(
-            idTransaccion,
-            monto,
-            fechaTransaccion,
-            TipoTransaccion.TRANSFERENCIA_SALIENTE
-        );
+        // Crear transacción saliente (usando TransaccionTransferencia para incluir comisión)
+        TransaccionTransferencia transaccionSaliente = new TransaccionTransferencia(monto);
+        transaccionSaliente.setId(idTransaccion);
+        transaccionSaliente.setFecha(fechaTransaccion);
+        transaccionSaliente.setComision(comision);
 
         // Crear transacción entrante
         Transaccion transaccionEntrante = new Transaccion(
@@ -101,18 +118,37 @@ public class TransferenciaService {
             fechaTransaccion,
             TipoTransaccion.TRANSFERENCIA_ENTRANTE
         );
+        
+        // Crear transacción para el cargo de comisión
+        String idCargo = UUID.randomUUID().toString();
+        Transaccion transaccionCargo = new Transaccion(
+            idCargo,
+            comision,
+            fechaTransaccion,
+            TipoTransaccion.CARGO
+        );
 
-        // Actualizar cuenta origen
-        actualizarCuentaOrigen(cuentaOrigen, transaccionSaliente, monto);
+        // Actualizar cuenta origen - ahora descontando monto + comisión
+        actualizarCuentaOrigen(cuentaOrigen, transaccionSaliente, transaccionCargo, monto, comision);
 
         // Actualizar cuenta destino
         actualizarCuentaDestino(cuentaDestino, transaccionEntrante, monto);
     }
 
-    private void actualizarCuentaOrigen(Cuenta cuenta, Transaccion transaccion, double monto) {
-        cuenta.getTransacciones().insertarAlInicio(transaccion);
-        cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - monto);
-        cuenta.setSaldoTotal(cuenta.getSaldoTotal() - monto);
+    private void actualizarCuentaOrigen(
+            Cuenta cuenta, 
+            TransaccionTransferencia transaccionTransferencia, 
+            Transaccion transaccionCargo,
+            double monto, 
+            double comision) {
+        // Registrar transacción de transferencia
+        cuenta.getTransacciones().insertarAlInicio(transaccionTransferencia);
+        // Registrar transacción de cargo por comisión
+        cuenta.getTransacciones().insertarAlInicio(transaccionCargo);
+        
+        double montoTotal = monto + comision;
+        cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() - montoTotal);
+        cuenta.setSaldoTotal(cuenta.getSaldoTotal() - montoTotal);
     }
 
     private void actualizarCuentaDestino(Cuenta cuenta, Transaccion transaccion, double monto) {

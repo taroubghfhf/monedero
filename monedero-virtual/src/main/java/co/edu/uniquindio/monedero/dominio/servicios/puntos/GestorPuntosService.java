@@ -5,7 +5,9 @@ import co.edu.uniquindio.monedero.dominio.puerto.cuenta.dao.CuentaDao;
 import co.edu.uniquindio.monedero.infraestructura.arbol.ArbolPuntos;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
+import java.util.UUID;
 
 @Service
 public class GestorPuntosService {
@@ -127,6 +129,19 @@ public class GestorPuntosService {
         // Usar la cédula del cliente para buscar la cuenta
         Cuenta cuenta = cuentaDao.buscarPorNumeroCuenta(cedulaCliente);
         if (cuenta != null) {
+            // Crear una transacción de consignación para el bono
+            String idTransaccion = UUID.randomUUID().toString();
+            Transaccion transaccionBono = new Transaccion(
+                idTransaccion,
+                bono,
+                LocalDateTime.now(),
+                TipoTransaccion.DEPOSITO
+            );
+            
+            // Registrar la transacción en la cuenta
+            cuenta.getTransacciones().insertarAlInicio(transaccionBono);
+            
+            // Actualizar saldos
             cuenta.setSaldoCuenta(cuenta.getSaldoCuenta() + bono);
             cuenta.setSaldoTotal(cuenta.getSaldoTotal() + bono);
         }
