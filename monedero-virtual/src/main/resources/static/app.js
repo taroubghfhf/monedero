@@ -2653,8 +2653,13 @@ function loadMonederos() {
                 </button>
               </li>
               <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cuenta-monedero-tab" data-bs-toggle="tab" data-bs-target="#cuenta-monedero" type="button" role="tab">
+                  <i class="bi bi-bank"></i> Cuenta → Monedero
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
                 <button class="nav-link" id="transferir-tab" data-bs-toggle="tab" data-bs-target="#transferir" type="button" role="tab">
-                  <i class="bi bi-arrow-left-right"></i> Transferir
+                  <i class="bi bi-arrow-left-right"></i> Entre Monederos
                 </button>
               </li>
             </ul>
@@ -2715,7 +2720,65 @@ function loadMonederos() {
                 </div>
               </div>
               
-              <!-- Tab de Transferir -->
+              <!-- Tab de Transferir de Cuenta a Monedero -->
+              <div class="tab-pane fade" id="cuenta-monedero" role="tabpanel">
+                <div class="card">
+                  <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Transferir de Cuenta a Monedero</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="transferirCuentaMonederoForm">
+                      <div class="mb-3">
+                        <label for="cedulaClienteCuentaMonedero" class="form-label">Cédula del Cliente</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="cedulaClienteCuentaMonedero" required>
+                          <button type="button" class="btn btn-outline-info" onclick="cargarDatosCuentaCliente()">
+                            <i class="bi bi-search"></i> Buscar Cliente
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div id="infoCuentaCliente" class="d-none mb-3">
+                        <div class="alert alert-info">
+                          <h6><i class="bi bi-bank"></i> Información de la Cuenta</h6>
+                          <div id="detallesCuentaCliente"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="monederoDestinoCuenta" class="form-label">Monedero Destino</label>
+                        <div class="input-group">
+                          <select class="form-select" id="monederoDestinoCuenta" required>
+                            <option value="">Seleccione monedero destino</option>
+                          </select>
+                          <button type="button" class="btn btn-outline-info" onclick="cargarMonederosDestino()">
+                            <i class="bi bi-arrow-clockwise"></i> Cargar Monederos
+                          </button>
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="montoCuentaMonedero" class="form-label">Monto a Transferir</label>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input type="number" class="form-control" id="montoCuentaMonedero" step="0.01" min="0.01" required>
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label for="conceptoCuentaMonedero" class="form-label">Concepto</label>
+                        <input type="text" class="form-control" id="conceptoCuentaMonedero" placeholder="Descripción de la transferencia" required>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-info">
+                        <i class="bi bi-bank"></i> Transferir de Cuenta a Monedero
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Tab de Transferir Entre Monederos -->
               <div class="tab-pane fade" id="transferir" role="tabpanel">
                 <div class="card">
                   <div class="card-header bg-warning text-dark">
@@ -2731,30 +2794,43 @@ function loadMonederos() {
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="monederoOrigen" class="form-label">Monedero Origen</label>
-                            <select class="form-select" id="monederoOrigen" required>
-                              <option value="">Seleccione monedero origen</option>
-                            </select>
+                            <div class="input-group">
+                              <select class="form-select" id="monederoOrigen" required>
+                                <option value="">Seleccione monedero origen</option>
+                              </select>
+                              <button type="button" class="btn btn-outline-warning" onclick="cargarMonederosOrigen()">
+                                <i class="bi bi-arrow-clockwise"></i>
+                              </button>
+                            </div>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="monederoDestino" class="form-label">Monedero Destino</label>
-                            <select class="form-select" id="monederoDestino" required>
-                              <option value="">Seleccione monedero destino</option>
-                            </select>
+                            <div class="input-group">
+                              <select class="form-select" id="monederoDestino" required>
+                                <option value="">Seleccione monedero destino</option>
+                              </select>
+                              <button type="button" class="btn btn-outline-warning" onclick="cargarMonederosDestinoTransferencia()">
+                                <i class="bi bi-arrow-clockwise"></i>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="mb-3">
                         <label for="montoTransferir" class="form-label">Monto a Transferir</label>
-                        <input type="number" class="form-control" id="montoTransferir" step="0.01" min="0.01" required>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input type="number" class="form-control" id="montoTransferir" step="0.01" min="0.01" required>
+                        </div>
                       </div>
                       <div class="mb-3">
                         <label for="conceptoTransferencia" class="form-label">Concepto</label>
                         <input type="text" class="form-control" id="conceptoTransferencia" placeholder="Descripción de la transferencia" required>
                       </div>
                       <button type="button" class="btn btn-info me-2" onclick="cargarMonederosParaTransferencia()">
-                        <i class="bi bi-arrow-clockwise"></i> Cargar Monederos
+                        <i class="bi bi-arrow-clockwise"></i> Cargar Todos los Monederos
                       </button>
                       <button type="submit" class="btn btn-warning">
                         <i class="bi bi-arrow-left-right"></i> Transferir
@@ -2801,6 +2877,12 @@ function setupMonederosEvents() {
     await crearNuevoMonedero();
   });
   
+  // Evento para transferir de cuenta a monedero
+  document.getElementById('transferirCuentaMonederoForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await realizarTransferenciaCuentaMonedero();
+  });
+  
   // Evento para transferir entre monederos
   document.getElementById('transferirMonederosForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -2810,10 +2892,10 @@ function setupMonederosEvents() {
 
 async function cargarMonederosPorCuenta(numeroCuenta) {
   try {
-    const monederos = await fetchAPI(`/api/monederos/cuenta/${numeroCuenta}`);
-    const saldoTotal = await fetchAPI(`/api/monederos/cuenta/${numeroCuenta}/saldo-total`);
+    const monederos = await fetchAPI(`/api/monederos/cliente/${numeroCuenta}`);
+    const saldoTotal = await fetchAPI(`/api/monederos/cliente/${numeroCuenta}/saldo-total`);
     
-    mostrarMonederos(monederos, saldoTotal.saldoTotal);
+    mostrarMonederos(monederos, saldoTotal.saldoTotal, numeroCuenta);
     mostrarGrafoRelaciones(numeroCuenta, monederos);
   } catch (error) {
     showMessage(`Error al cargar monederos: ${error.message}`, 'danger');
@@ -2859,11 +2941,11 @@ function mostrarMonederos(monederos, saldoTotal, cedulaCliente) {
                 <strong>ID:</strong> <small class="text-muted">${monedero.id}</small>
               </p>
               <div class="btn-group btn-group-sm" role="group">
-                <button class="btn btn-outline-info" onclick="verRelacionesMonedero('${monedero.cuentaPropietaria}', '${monedero.id}')">
+                <button class="btn btn-outline-info" onclick="verRelacionesMonedero('${cedulaCliente}', '${monedero.id}')">
                   <i class="bi bi-diagram-3"></i> Relaciones
                 </button>
                 ${monedero.tipo !== 'PRINCIPAL' ? `
-                  <button class="btn btn-outline-danger" onclick="eliminarMonedero('${monedero.cuentaPropietaria}', '${monedero.id}', '${monedero.nombre}')">
+                  <button class="btn btn-outline-danger" onclick="eliminarMonedero('${cedulaCliente}', '${monedero.id}', '${monedero.nombre}')">
                     <i class="bi bi-trash"></i> Eliminar
                   </button>
                 ` : ''}
@@ -3237,5 +3319,206 @@ async function cargarMonederosPorCliente(cedulaCliente) {
     mostrarGrafoRelaciones(cedulaCliente, monederos);
   } catch (error) {
     showMessage(`Error al cargar monederos: ${error.message}`, 'danger');
+  }
+}
+
+// Función para cargar datos de la cuenta del cliente
+async function cargarDatosCuentaCliente() {
+  const cedulaCliente = document.getElementById('cedulaClienteCuentaMonedero').value;
+  const infoCuentaCliente = document.getElementById('infoCuentaCliente');
+  const detallesCuentaCliente = document.getElementById('detallesCuentaCliente');
+  
+  if (!cedulaCliente) {
+    showMessage('Ingrese la cédula del cliente primero', 'warning');
+    return;
+  }
+  
+  try {
+    // Buscar cliente
+    const cliente = await fetchAPI(`/api/clientes/document/${cedulaCliente}`);
+    
+    // Buscar cuenta del cliente
+    const cuenta = await fetchAPI(`/api/cuenta/buscar/${cedulaCliente}`);
+    
+    detallesCuentaCliente.innerHTML = `
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-1"><strong>Cliente:</strong> ${cliente.nombre} ${cliente.apellido}</p>
+          <p class="mb-1"><strong>Cédula:</strong> ${cliente.cedula}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="mb-1"><strong>Número de Cuenta:</strong> ${cuenta.numeroCuenta}</p>
+          <p class="mb-0"><strong>Saldo Disponible:</strong> <span class="text-success">$${cuenta.saldoCuenta.toLocaleString('es-CO', {minimumFractionDigits: 2})}</span></p>
+        </div>
+      </div>
+    `;
+    
+    infoCuentaCliente.classList.remove('d-none');
+    showMessage('Información de cuenta cargada correctamente', 'success');
+    
+    // Cargar automáticamente los monederos del cliente
+    await cargarMonederosDestino();
+  } catch (error) {
+    showMessage(`Error al cargar datos del cliente: ${error.message}`, 'danger');
+    infoCuentaCliente.classList.add('d-none');
+  }
+}
+
+// Función para cargar monederos destino (para transferencia de cuenta a monedero)
+async function cargarMonederosDestino() {
+  const cedulaCliente = document.getElementById('cedulaClienteCuentaMonedero').value;
+  
+  if (!cedulaCliente) {
+    showMessage('Ingrese la cédula del cliente primero', 'warning');
+    return;
+  }
+  
+  try {
+    const monederos = await fetchAPI(`/api/monederos/cliente/${cedulaCliente}`);
+    
+    const selectDestino = document.getElementById('monederoDestinoCuenta');
+    
+    // Limpiar opciones anteriores
+    selectDestino.innerHTML = '<option value="">Seleccione monedero destino</option>';
+    
+    // Agregar opciones
+    monederos.forEach(monedero => {
+      const option = `<option value="${monedero.id}">${monedero.nombre} (${formatearTipoMonedero(monedero.tipo)}) - $${monedero.saldo.toLocaleString('es-CO', {minimumFractionDigits: 2})}</option>`;
+      selectDestino.innerHTML += option;
+    });
+    
+    showMessage('Monederos destino cargados correctamente', 'success');
+  } catch (error) {
+    showMessage(`Error al cargar monederos: ${error.message}`, 'danger');
+  }
+}
+
+// Función para cargar monederos origen (para transferencia entre monederos)
+async function cargarMonederosOrigen() {
+  const cedulaCliente = document.getElementById('cedulaClienteTransferir').value;
+  
+  if (!cedulaCliente) {
+    showMessage('Ingrese la cédula del cliente primero', 'warning');
+    return;
+  }
+  
+  try {
+    const monederos = await fetchAPI(`/api/monederos/cliente/${cedulaCliente}`);
+    
+    const selectOrigen = document.getElementById('monederoOrigen');
+    
+    // Limpiar opciones anteriores
+    selectOrigen.innerHTML = '<option value="">Seleccione monedero origen</option>';
+    
+    // Agregar opciones
+    monederos.forEach(monedero => {
+      const option = `<option value="${monedero.id}">${monedero.nombre} (${formatearTipoMonedero(monedero.tipo)}) - $${monedero.saldo.toLocaleString('es-CO', {minimumFractionDigits: 2})}</option>`;
+      selectOrigen.innerHTML += option;
+    });
+    
+    showMessage('Monederos origen cargados correctamente', 'success');
+  } catch (error) {
+    showMessage(`Error al cargar monederos origen: ${error.message}`, 'danger');
+  }
+}
+
+// Función para cargar monederos destino (para transferencia entre monederos)
+async function cargarMonederosDestinoTransferencia() {
+  const cedulaCliente = document.getElementById('cedulaClienteTransferir').value;
+  
+  if (!cedulaCliente) {
+    showMessage('Ingrese la cédula del cliente primero', 'warning');
+    return;
+  }
+  
+  try {
+    const monederos = await fetchAPI(`/api/monederos/cliente/${cedulaCliente}`);
+    
+    const selectDestino = document.getElementById('monederoDestino');
+    
+    // Limpiar opciones anteriores
+    selectDestino.innerHTML = '<option value="">Seleccione monedero destino</option>';
+    
+    // Agregar opciones
+    monederos.forEach(monedero => {
+      const option = `<option value="${monedero.id}">${monedero.nombre} (${formatearTipoMonedero(monedero.tipo)}) - $${monedero.saldo.toLocaleString('es-CO', {minimumFractionDigits: 2})}</option>`;
+      selectDestino.innerHTML += option;
+    });
+    
+    showMessage('Monederos destino cargados correctamente', 'success');
+  } catch (error) {
+    showMessage(`Error al cargar monederos destino: ${error.message}`, 'danger');
+  }
+}
+
+// Función para realizar transferencia de cuenta a monedero
+async function realizarTransferenciaCuentaMonedero() {
+  const cedulaCliente = document.getElementById('cedulaClienteCuentaMonedero').value;
+  const idMonederoDestino = document.getElementById('monederoDestinoCuenta').value;
+  const monto = parseFloat(document.getElementById('montoCuentaMonedero').value);
+  const concepto = document.getElementById('conceptoCuentaMonedero').value;
+  
+  if (!cedulaCliente) {
+    showMessage('Ingrese la cédula del cliente', 'warning');
+    return;
+  }
+  
+  if (!idMonederoDestino) {
+    showMessage('Seleccione un monedero destino', 'warning');
+    return;
+  }
+  
+  if (!monto || monto <= 0) {
+    showMessage('Ingrese un monto válido mayor a cero', 'warning');
+    return;
+  }
+  
+  if (!concepto) {
+    showMessage('Ingrese un concepto para la transferencia', 'warning');
+    return;
+  }
+  
+  try {
+    // Mostrar indicador de carga
+    const btnSubmit = document.querySelector('#transferirCuentaMonederoForm button[type="submit"]');
+    const btnText = btnSubmit.innerHTML;
+    btnSubmit.disabled = true;
+    btnSubmit.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Procesando...`;
+    
+    const response = await fetchAPI('/api/monederos/transferir-de-cuenta', {
+      method: 'POST',
+      body: JSON.stringify({
+        cedulaCliente,
+        idMonedero: idMonederoDestino,
+        monto
+      })
+    });
+    
+    showMessage(`Transferencia de cuenta a monedero realizada exitosamente`, 'success');
+    
+    // Limpiar formulario
+    document.getElementById('transferirCuentaMonederoForm').reset();
+    document.getElementById('infoCuentaCliente').classList.add('d-none');
+    
+    // Recargar información de cuenta si está visible
+    if (!document.getElementById('infoCuentaCliente').classList.contains('d-none')) {
+      await cargarDatosCuentaCliente();
+    }
+    
+    // Si hay monederos cargados en la vista principal, actualizarlos
+    const cedulaClienteActual = document.getElementById('cedulaClienteMonederos').value;
+    if (cedulaClienteActual === cedulaCliente) {
+      await cargarMonederosPorCliente(cedulaCliente);
+    }
+    
+    btnSubmit.disabled = false;
+    btnSubmit.innerHTML = btnText;
+  } catch (error) {
+    showMessage(`Error al realizar transferencia: ${error.message}`, 'danger');
+    
+    // Restaurar botón
+    const btnSubmit = document.querySelector('#transferirCuentaMonederoForm button[type="submit"]');
+    btnSubmit.disabled = false;
+    btnSubmit.innerHTML = `<i class="bi bi-bank"></i> Transferir de Cuenta a Monedero`;
   }
 }

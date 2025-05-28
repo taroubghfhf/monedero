@@ -6,8 +6,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: monederovirtualuniquindio@gmail.com
-    password: jlyu xnwz heyq lugr
+    username: juan.david748@gmail.com
+    password: qhfw lxbs qijj zdjb
     properties:
       mail:
         smtp:

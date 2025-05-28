@@ -147,3 +147,171 @@ DEBUG: Cuenta encontrada: 556744248450065
 2025-05-27T22:34:41.040-05:00 DEBUG 9434 --- [        task-11] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
 2025-05-27T22:34:41.040-05:00 DEBUG 9434 --- [        task-11] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
 2025-05-27T22:34:41.040-05:00  INFO 9434 --- [        task-11] c.e.u.m.i.n.GestorNotificaciones         : Estadísticas de notificaciones: EstadisticasListaCircular{tamaño=0, capacidad=100, uso=0,00%, lectura=1, escritura=1}
+2025-05-27T22:35:11.044-05:00 DEBUG 9434 --- [        task-12] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:35:11.045-05:00 DEBUG 9434 --- [        task-12] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:35:11.045-05:00 DEBUG 9434 --- [        task-12] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:35:41.049-05:00 DEBUG 9434 --- [        task-13] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:35:41.050-05:00 DEBUG 9434 --- [        task-13] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:35:41.050-05:00 DEBUG 9434 --- [        task-13] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:36:11.016-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T22:36:11.017-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T22:36:11.017-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T22:36:11.017-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T22:36:11.017-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T22:36:11.017-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T22:36:11.017-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T22:36:11.018-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T22:36:11.018103 y 2025-05-27T22:46:11.018103
+2025-05-27T22:36:11.018-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T22:36:11.018-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T22:36:11.060-05:00 DEBUG 9434 --- [        task-14] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:36:11.060-05:00 DEBUG 9434 --- [        task-14] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:36:11.060-05:00 DEBUG 9434 --- [        task-14] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:36:41.065-05:00 DEBUG 9434 --- [        task-15] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:36:41.066-05:00 DEBUG 9434 --- [        task-15] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:36:41.066-05:00 DEBUG 9434 --- [        task-15] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:08:16.394-05:00 DEBUG 9434 --- [        task-16] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:08:16.394-05:00 DEBUG 9434 --- [        task-16] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:08:16.394-05:00 DEBUG 9434 --- [        task-16] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:08:46.389-05:00 DEBUG 9434 --- [        task-17] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:08:46.390-05:00 DEBUG 9434 --- [        task-17] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:08:46.390-05:00 DEBUG 9434 --- [        task-17] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:09:16.335-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:09:16.335-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:09:16.335-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:09:16.336-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:09:16.336-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:09:16.336-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:09:16.336-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:09:16.336-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:09:16.336716 y 2025-05-27T23:19:16.336716
+2025-05-27T23:09:16.336-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:09:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:09:16.389-05:00 DEBUG 9434 --- [        task-18] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:09:16.389-05:00 DEBUG 9434 --- [        task-18] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:09:16.389-05:00 DEBUG 9434 --- [        task-18] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:09:46.394-05:00 DEBUG 9434 --- [        task-19] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:09:46.395-05:00 DEBUG 9434 --- [        task-19] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:09:46.395-05:00 DEBUG 9434 --- [        task-19] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:10:16.400-05:00 DEBUG 9434 --- [        task-20] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:10:16.401-05:00 DEBUG 9434 --- [        task-20] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:10:16.401-05:00 DEBUG 9434 --- [        task-20] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:10:46.401-05:00 DEBUG 9434 --- [        task-21] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:10:46.402-05:00 DEBUG 9434 --- [        task-21] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:10:46.402-05:00 DEBUG 9434 --- [        task-21] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:10:46.402-05:00  INFO 9434 --- [        task-21] c.e.u.m.i.n.GestorNotificaciones         : Estadísticas de notificaciones: EstadisticasListaCircular{tamaño=0, capacidad=100, uso=0,00%, lectura=1, escritura=1}
+2025-05-27T23:11:16.336-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:11:16.336-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:11:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:11:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:11:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:11:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:11:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:11:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:11:16.337542 y 2025-05-27T23:21:16.337542
+2025-05-27T23:11:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:11:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:11:16.406-05:00 DEBUG 9434 --- [        task-22] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:11:16.406-05:00 DEBUG 9434 --- [        task-22] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:11:16.406-05:00 DEBUG 9434 --- [        task-22] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:11:46.411-05:00 DEBUG 9434 --- [        task-23] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:11:46.412-05:00 DEBUG 9434 --- [        task-23] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:11:46.412-05:00 DEBUG 9434 --- [        task-23] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:12:16.417-05:00 DEBUG 9434 --- [        task-24] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:12:16.418-05:00 DEBUG 9434 --- [        task-24] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:12:16.418-05:00 DEBUG 9434 --- [        task-24] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:12:46.423-05:00 DEBUG 9434 --- [        task-25] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:12:46.423-05:00 DEBUG 9434 --- [        task-25] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:12:46.424-05:00 DEBUG 9434 --- [        task-25] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:13:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:13:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:13:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:13:16.337-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:13:16.337-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:13:16.338-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:13:16.338-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:13:16.338-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:13:16.338232 y 2025-05-27T23:23:16.338232
+2025-05-27T23:13:16.338-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:13:16.338-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:13:16.424-05:00 DEBUG 9434 --- [        task-26] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:13:16.424-05:00 DEBUG 9434 --- [        task-26] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:13:16.424-05:00 DEBUG 9434 --- [        task-26] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:13:46.429-05:00 DEBUG 9434 --- [        task-27] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:13:46.430-05:00 DEBUG 9434 --- [        task-27] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:13:46.430-05:00 DEBUG 9434 --- [        task-27] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:14:16.434-05:00 DEBUG 9434 --- [        task-28] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:14:16.435-05:00 DEBUG 9434 --- [        task-28] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:14:16.435-05:00 DEBUG 9434 --- [        task-28] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:14:46.436-05:00 DEBUG 9434 --- [        task-29] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:14:46.436-05:00 DEBUG 9434 --- [        task-29] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:14:46.436-05:00 DEBUG 9434 --- [        task-29] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:15:16.342-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:15:16.342-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:15:16.342-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:15:16.342867 y 2025-05-27T23:25:16.342867
+2025-05-27T23:15:16.342-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:15:16.342-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:15:16.441-05:00 DEBUG 9434 --- [        task-30] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:15:16.441-05:00 DEBUG 9434 --- [        task-30] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:15:16.442-05:00 DEBUG 9434 --- [        task-30] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:15:46.446-05:00 DEBUG 9434 --- [        task-31] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:15:46.446-05:00 DEBUG 9434 --- [        task-31] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:15:46.446-05:00 DEBUG 9434 --- [        task-31] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:15:46.446-05:00  INFO 9434 --- [        task-31] c.e.u.m.i.n.GestorNotificaciones         : Estadísticas de notificaciones: EstadisticasListaCircular{tamaño=0, capacidad=100, uso=0,00%, lectura=1, escritura=1}
+2025-05-27T23:16:16.451-05:00 DEBUG 9434 --- [        task-32] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:16:16.452-05:00 DEBUG 9434 --- [        task-32] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:16:16.452-05:00 DEBUG 9434 --- [        task-32] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:16:46.453-05:00 DEBUG 9434 --- [        task-33] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:16:46.453-05:00 DEBUG 9434 --- [        task-33] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:16:46.453-05:00 DEBUG 9434 --- [        task-33] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:17:16.349-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:17:16.349-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:17:16.349-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:17:16.349690 y 2025-05-27T23:27:16.349690
+2025-05-27T23:17:16.349-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:17:16.349-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:17:16.458-05:00 DEBUG 9434 --- [        task-34] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:17:16.459-05:00 DEBUG 9434 --- [        task-34] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:17:16.459-05:00 DEBUG 9434 --- [        task-34] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:17:46.464-05:00 DEBUG 9434 --- [        task-35] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:17:46.465-05:00 DEBUG 9434 --- [        task-35] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:17:46.465-05:00 DEBUG 9434 --- [        task-35] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:18:16.465-05:00 DEBUG 9434 --- [        task-36] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:18:16.465-05:00 DEBUG 9434 --- [        task-36] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:18:16.465-05:00 DEBUG 9434 --- [        task-36] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:18:46.470-05:00 DEBUG 9434 --- [        task-37] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:18:46.471-05:00 DEBUG 9434 --- [        task-37] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:18:46.471-05:00 DEBUG 9434 --- [        task-37] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:19:16.354-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T23:19:16.355-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T23:19:16.355-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T23:19:16.355-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T23:19:16.355-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T23:19:16.355-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T23:19:16.355-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T23:19:16.355-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T23:19:16.355815 y 2025-05-27T23:29:16.355815
+2025-05-27T23:19:16.356-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T23:19:16.356-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T23:19:16.474-05:00 DEBUG 9434 --- [        task-38] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:19:16.475-05:00 DEBUG 9434 --- [        task-38] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:19:16.475-05:00 DEBUG 9434 --- [        task-38] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:19:46.478-05:00 DEBUG 9434 --- [        task-39] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:19:46.479-05:00 DEBUG 9434 --- [        task-39] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:19:46.479-05:00 DEBUG 9434 --- [        task-39] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:20:16.478-05:00 DEBUG 9434 --- [        task-40] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:20:16.479-05:00 DEBUG 9434 --- [        task-40] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:20:16.479-05:00 DEBUG 9434 --- [        task-40] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:20:46.793-05:00 DEBUG 9434 --- [        task-41] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T23:20:46.794-05:00 DEBUG 9434 --- [        task-41] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T23:20:46.794-05:00 DEBUG 9434 --- [        task-41] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T23:20:46.794-05:00  INFO 9434 --- [        task-41] c.e.u.m.i.n.GestorNotificaciones         : Estadísticas de notificaciones: EstadisticasListaCircular{tamaño=0, capacidad=100, uso=0,00%, lectura=1, escritura=1}
+2025-05-27T23:20:52.033-05:00  INFO 9434 --- [ionShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-05-27T23:20:52.046-05:00  INFO 9434 --- [ionShutdownHook] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2025-05-27T23:20:52.046-05:00  INFO 9434 --- [ionShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2025-05-27T23:20:52.046-05:00  INFO 9434 --- [ionShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2025-05-27T23:20:52.046-05:00  INFO 9434 --- [ionShutdownHook] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
