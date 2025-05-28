@@ -14,6 +14,7 @@ import co.edu.uniquindio.monedero.dominio.puerto.transaccion.TransaccionPrograma
 import co.edu.uniquindio.monedero.dominio.servicios.transaccion.GestorTransaccionesProgramadasService;
 import co.edu.uniquindio.monedero.infraestructura.adaptador.transaccion.TransaccionProgramadaRepositorioImpl;
 import co.edu.uniquindio.monedero.infraestructura.cola.ColaPrioridadTransacciones;
+import co.edu.uniquindio.monedero.infraestructura.notificaciones.ServicioAlertas;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -74,8 +75,8 @@ public class BeanServicio {
     @Bean
     public CrearClienteService crearClienteService(
             ClienteDao clienteDao,
-            ClienteRepositorio clienteRepositorio) {
-        return new CrearClienteService(clienteDao, clienteRepositorio);
+            ClienteRepositorio clienteRepositorio, ServicioAlertas servicioAlertas) {
+        return new CrearClienteService(clienteDao, clienteRepositorio, servicioAlertas);
     }
 
     @Bean

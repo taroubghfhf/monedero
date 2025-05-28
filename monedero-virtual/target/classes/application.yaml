@@ -1,2 +1,53 @@
 server:
   port: 8080
+
+spring:
+  # Configuración para Gmail SMTP
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: monederovirtualuniquindio@gmail.com
+    password: jlyu xnwz heyq lugr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: smtp.gmail.com
+    protocol: smtp
+    test-connection: false
+
+# Configuración para el sistema de notificaciones
+notificaciones:
+  # Lista circular configuración
+  lista-circular:
+    tamaño-maximo: 100
+    intervalo-procesamiento: 30 # segundos
+  
+  # Alertas automáticas
+  alertas:
+    saldo-bajo:
+      habilitado: true
+      umbral: 10000 # monto mínimo en pesos
+      frecuencia-revision: 120 # segundos (1 hora)
+    
+    transacciones-programadas:
+      habilitado: true
+      recordatorio-anticipado: 600 # segundos (24 horas antes)
+      frecuencia-revision: 120 # segundos (2 horas)
+  
+  # Templates de email
+  templates:
+    path: "classpath:templates/email/"
+    saldo-bajo: "alerta-saldo-bajo.html"
+    recordatorio-transaccion: "recordatorio-transaccion.html"
+    bienvenida: "bienvenida.html"
+
+# Configuración de logging
+logging:
+  level:
+    co.edu.uniquindio.monedero.infraestructura.notificaciones: DEBUG
+    org.springframework.mail: DEBUG

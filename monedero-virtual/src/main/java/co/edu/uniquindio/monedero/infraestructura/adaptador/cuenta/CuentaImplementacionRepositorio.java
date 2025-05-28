@@ -25,4 +25,14 @@ public class CuentaImplementacionRepositorio implements CuentaRepositorio {
         }
         return false;
     }
+
+    @Override
+    public Cuenta buscarPorNumeroCuenta(String numeroCuenta) {
+        return null;
+    }
+
+    @Override
+    public boolean actualizar(Cuenta cuenta) {
+        return false;
+    }
 }

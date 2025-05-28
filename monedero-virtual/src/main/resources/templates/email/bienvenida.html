@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Monedero Virtual Uniquindío</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .welcome-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .features {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #667eea;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+        .social-links {
+            margin: 15px 0;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¡Bienvenido a Monedero Virtual Uniquindío!</h1>
+            <p>Tu gateway hacia un futuro financiero digital</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-message">
+                <h2>¡Hola <span th:text="${nombreCliente}">Cliente</span>!</h2>
+                <p>Nos complace darte la bienvenida a <strong>Monedero Virtual Uniquindío</strong>, la plataforma líder en soluciones financieras digitales.</p>
+                <p>Tu cuenta ha sido creada exitosamente y ya puedes comenzar a disfrutar de todos nuestros servicios.</p>
+            </div>
+            
+            <div class="features">
+                <h3 style="color: #333; margin-top: 0;">¿Qué puedes hacer con tu monedero?</h3>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <div>
+                        <strong>Gestionar tu dinero:</strong> Realiza depósitos, retiros y transferencias de forma segura
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📅</div>
+                    <div>
+                        <strong>Transacciones programadas:</strong> Automatiza tus pagos y transferencias recurrentes
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <div>
+                        <strong>Beneficios exclusivos:</strong> Acumula puntos y disfruta de promociones especiales
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔔</div>
+                    <div>
+                        <strong>Notificaciones inteligentes:</strong> Mantente informado de todas tus transacciones
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div>
+                        <strong>Seguridad garantizada:</strong> Tecnología de punta para proteger tu dinero
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="cta-button">Comenzar a Usar Mi Monedero</a>
+            </div>
+            
+            <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin: 25px 0;">
+                <h4 style="color: #856404; margin-top: 0;">💡 Tip de Seguridad</h4>
+                <p style="color: #856404; margin-bottom: 0;">
+                    Nunca compartas tus credenciales de acceso. Nuestro equipo nunca te solicitará esta información por email o teléfono.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Monedero Virtual Uniquindío</strong></p>
+            <p>Universidad del Quindío - Facultad de Ingeniería</p>
+            <p>Armenia, Quindío - Colombia</p>
+            
+            <div class="social-links">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="#">Instagram</a> |
+                <a href="#">LinkedIn</a>
+            </div>
+            
+            <p style="font-size: 12px; color: #999; margin-top: 20px;">
+                © <span th:text="${año}">2024</span> Monedero Virtual Uniquindío. Todos los derechos reservados.<br>
+                Este correo fue enviado a <span th:text="${emailCliente}">email@example.com</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

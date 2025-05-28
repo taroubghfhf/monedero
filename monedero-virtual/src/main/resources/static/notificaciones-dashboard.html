@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Notificaciones - Monedero Virtual Uniquindío</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para el dashboard */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-card h3 {
+            color: #333;
+            margin: 0 0 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-active { background-color: #4CAF50; }
+        .status-warning { background-color: #FF9800; }
+        .status-error { background-color: #f44336; }
+        .status-inactive { background-color: #9E9E9E; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.warning {
+            background: linear-gradient(90deg, #FF9800, #f57c00);
+        }
+
+        .progress-fill.danger {
+            background: linear-gradient(90deg, #f44336, #d32f2f);
+        }
+
+        .actions-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            margin-bottom: 30px;
+        }
+
+        .actions-panel h3 {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn.danger {
+            background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+        }
+
+        .btn.danger:hover {
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .error {
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .timestamp {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>📊 Dashboard de Notificaciones</h1>
+            <p>Monitor en tiempo real del sistema de alertas y notificaciones del Monedero Virtual</p>
+        </div>
+
+        <div id="loading" class="loading">
+            <p>⏳ Cargando estadísticas del sistema...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <p>❌ Error al cargar las estadísticas. Verifique que el servidor esté funcionando.</p>
+        </div>
+
+        <div id="dashboard-content" style="display: none;">
+            <div class="stats-grid">
+                <!-- Estadísticas del Gestor de Notificaciones -->
+                <div class="stat-card">
+                    <h3>🔄 Gestor de Notificaciones</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Notificaciones Pendientes</span>
+                        <span class="stat-value" id="notificaciones-pendientes">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Capacidad Total</span>
+                        <span class="stat-value" id="capacidad-total">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Uso del Sistema</span>
+                        <span class="stat-value" id="porcentaje-uso">-%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-uso"></div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Intervalo de Procesamiento</span>
+                        <span class="stat-value" id="intervalo-procesamiento">- seg</span>
+                    </div>
+                </div>
+
+                <!-- Estadísticas de Alertas -->
+                <div class="stat-card">
+                    <h3>🚨 Sistema de Alertas</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Alertas en Cache</span>
+                        <span class="stat-value" id="alertas-cache">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Saldo Bajo</span>
+                        <span class="stat-value">
+                            <span class="status-indicator" id="status-saldo-bajo"></span>
+                            <span id="estado-saldo-bajo">-</span>
+                        </span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Transacciones Programadas</span>
+                        <span class="stat-value">
+                            <span class="status-indicator" id="status-transacciones"></span>
+                            <span id="estado-transacciones">-</span>
+                        </span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Umbral Saldo Bajo</span>
+                        <span class="stat-value" id="umbral-saldo-bajo">$-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Acciones -->
+            <div class="actions-panel">
+                <h3>🛠️ Acciones del Sistema</h3>
+                <button class="btn" onclick="actualizarEstadisticas()">🔄 Actualizar Estadísticas</button>
+                <button class="btn" onclick="verificarSalud()">💚 Verificar Salud</button>
+                <button class="btn danger" onclick="limpiarNotificaciones()">🗑️ Limpiar Notificaciones</button>
+                <button class="btn" onclick="window.location.href='index.html'">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div class="timestamp" id="timestamp"></div>
+    </div>
+
+    <script>
+        // Variables globales
+        let actualizacionAutomatica = null;
+
+        // Cargar estadísticas al iniciar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarEstadisticas();
+            // Actualizar cada 30 segundos
+            actualizacionAutomatica = setInterval(cargarEstadisticas, 30000);
+        });
+
+        // Función para cargar estadísticas del API
+        async function cargarEstadisticas() {
+            try {
+                mostrarCargando(true);
+                
+                const response = await fetch('/api/notificaciones/estadisticas');
+                
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                mostrarEstadisticas(data);
+                
+            } catch (error) {
+                console.error('Error al cargar estadísticas:', error);
+                mostrarError(true);
+            }
+        }
+
+        // Función para mostrar las estadísticas en la interfaz
+        function mostrarEstadisticas(data) {
+            mostrarCargando(false);
+            mostrarError(false);
+            
+            // Estadísticas del gestor
+            const gestor = data.gestor;
+            document.getElementById('notificaciones-pendientes').textContent = gestor.notificacionesPendientes;
+            document.getElementById('capacidad-total').textContent = gestor.capacidadTotal;
+            document.getElementById('porcentaje-uso').textContent = gestor.porcentajeUso.toFixed(1) + '%';
+            document.getElementById('intervalo-procesamiento').textContent = gestor.intervaloProcesamiento + ' seg';
+            
+            // Actualizar barra de progreso
+            const progressBar = document.getElementById('progress-uso');
+            const porcentaje = gestor.porcentajeUso;
+            progressBar.style.width = porcentaje + '%';
+            
+            // Cambiar color según el porcentaje
+            progressBar.className = 'progress-fill';
+            if (porcentaje > 80) {
+                progressBar.classList.add('danger');
+            } else if (porcentaje > 60) {
+                progressBar.classList.add('warning');
+            }
+            
+            // Estadísticas de alertas
+            const alertas = data.alertas;
+            document.getElementById('alertas-cache').textContent = alertas.alertasEnCache;
+            document.getElementById('umbral-saldo-bajo').textContent = '$' + alertas.umbralSaldoBajo.toLocaleString();
+            
+            // Estados de alertas
+            actualizarEstadoAlerta('status-saldo-bajo', 'estado-saldo-bajo', 
+                                 alertas.saldoBajoHabilitado, 'Habilitado', 'Deshabilitado');
+            actualizarEstadoAlerta('status-transacciones', 'estado-transacciones', 
+                                 alertas.transaccionesProgramadasHabilitado, 'Habilitado', 'Deshabilitado');
+            
+            // Timestamp
+            const fecha = new Date(data.timestamp);
+            document.getElementById('timestamp').textContent = 
+                `Última actualización: ${fecha.toLocaleString()}`;
+            
+            document.getElementById('dashboard-content').style.display = 'block';
+        }
+
+        // Función para actualizar el estado de una alerta
+        function actualizarEstadoAlerta(statusId, textoId, habilitado, textoHabilitado, textoDeshabilitado) {
+            const statusElement = document.getElementById(statusId);
+            const textoElement = document.getElementById(textoId);
+            
+            if (habilitado) {
+                statusElement.className = 'status-indicator status-active';
+                textoElement.textContent = textoHabilitado;
+            } else {
+                statusElement.className = 'status-indicator status-inactive';
+                textoElement.textContent = textoDeshabilitado;
+            }
+        }
+
+        // Función para mostrar/ocultar estado de carga
+        function mostrarCargando(mostrar) {
+            document.getElementById('loading').style.display = mostrar ? 'block' : 'none';
+            if (!mostrar) {
+                document.getElementById('dashboard-content').style.display = 'block';
+            }
+        }
+
+        // Función para mostrar/ocultar error
+        function mostrarError(mostrar) {
+            document.getElementById('error').style.display = mostrar ? 'block' : 'none';
+            document.getElementById('loading').style.display = 'none';
+            if (mostrar) {
+                document.getElementById('dashboard-content').style.display = 'none';
+            }
+        }
+
+        // Función para actualizar estadísticas manualmente
+        function actualizarEstadisticas() {
+            cargarEstadisticas();
+        }
+
+        // Función para verificar la salud del sistema
+        async function verificarSalud() {
+            try {
+                const response = await fetch('/api/notificaciones/salud');
+                const data = await response.json();
+                
+                const estado = data.estado;
+                const mensaje = data.descripcion;
+                
+                if (estado === 'SALUDABLE') {
+                    alert('✅ ' + mensaje);
+                } else {
+                    alert('❌ ' + mensaje);
+                }
+                
+            } catch (error) {
+                alert('❌ Error al verificar la salud del sistema: ' + error.message);
+            }
+        }
+
+        // Función para limpiar notificaciones
+        async function limpiarNotificaciones() {
+            if (!confirm('¿Está seguro de que desea limpiar todas las notificaciones pendientes?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/notificaciones/limpiar', {
+                    method: 'DELETE'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ ' + data.mensaje);
+                    cargarEstadisticas(); // Actualizar estadísticas
+                } else {
+                    alert('❌ ' + (data.error || 'Error al limpiar notificaciones'));
+                }
+                
+            } catch (error) {
+                alert('❌ Error al limpiar notificaciones: ' + error.message);
+            }
+        }
+
+        // Limpiar el intervalo cuando se cierre la página
+        window.addEventListener('beforeunload', function() {
+            if (actualizacionAutomatica) {
+                clearInterval(actualizacionAutomatica);
+            }
+        });
+    </script>
+</body>
+</html> 

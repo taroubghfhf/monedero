@@ -71,4 +71,24 @@ public class TransaccionProgramadaRepositorioImpl implements TransaccionPrograma
         }
         return activas;
     }
+
+    @Override
+    public List<TransaccionProgramada> buscarPorFechaEjecucionEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        List<TransaccionProgramada> transaccionesEnRango = new ArrayList<>();
+        var actual = colaPrioridad.getFrente();
+        
+        while (actual != null) {
+            TransaccionProgramada transaccion = actual.getTransaccion();
+            LocalDateTime fechaEjecucion = transaccion.getFechaEjecucion();
+            
+            // Verificar que la transacción esté activa y dentro del rango de fechas
+            if (transaccion.isActiva() && 
+                fechaEjecucion.isAfter(fechaInicio) && 
+                fechaEjecucion.isBefore(fechaFin)) {
+                transaccionesEnRango.add(transaccion);
+            }
+            actual = actual.getSiguiente();
+        }
+        return transaccionesEnRango;
+    }
 } 

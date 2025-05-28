@@ -1,0 +1,149 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< org.example:monedero-virtual >--------------------
+[INFO] Building monedero-virtual 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.5:run (default-cli) > test-compile @ monedero-virtual >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ monedero-virtual ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 8 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ monedero-virtual ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ monedero-virtual ---
+[INFO] skip non existing resourceDirectory /Users/juandasanche/IdeaProjects/monedero-virtual/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ monedero-virtual ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.5:run (default-cli) < test-compile @ monedero-virtual <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.5:run (default-cli) @ monedero-virtual ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2025-05-27T22:30:10.504-05:00  INFO 9434 --- [           main] co.edu.uniquindio.monedero.Main          : Starting Main using Java 17.0.14 with PID 9434 (/Users/juandasanche/IdeaProjects/monedero-virtual/target/classes started by juandasanche in /Users/juandasanche/IdeaProjects/monedero-virtual)
+2025-05-27T22:30:10.505-05:00  INFO 9434 --- [           main] co.edu.uniquindio.monedero.Main          : No active profile set, falling back to 1 default profile: "default"
+2025-05-27T22:30:10.807-05:00  INFO 9434 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-27T22:30:10.810-05:00  INFO 9434 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-27T22:30:10.810-05:00  INFO 9434 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27T22:30:10.826-05:00  INFO 9434 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-27T22:30:10.826-05:00  INFO 9434 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 306 ms
+DEBUG: ServicioMonederoImpl constructor called
+2025-05-27T22:30:10.901-05:00  INFO 9434 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-27T22:30:10.980-05:00  INFO 9434 --- [           main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2025-05-27T22:30:10.983-05:00  INFO 9434 --- [           main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@270d43a7
+2025-05-27T22:30:11.001-05:00  INFO 9434 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-27T22:30:11.001-05:00  INFO 9434 --- [           main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2025-05-27T22:30:11.002-05:00  INFO 9434 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2025-05-27T22:30:11.006-05:00  INFO 9434 --- [           main] co.edu.uniquindio.monedero.Main          : Started Main in 0.617 seconds (process running for 0.71)
+2025-05-27T22:30:11.008-05:00 DEBUG 9434 --- [         task-1] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:30:11.008-05:00 DEBUG 9434 --- [         task-1] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:30:11.008-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T22:30:11.008-05:00 DEBUG 9434 --- [         task-1] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:30:11.008-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T22:30:11.009-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T22:30:11.009-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 0 clientes procesados
+2025-05-27T22:30:11.009-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T22:30:11.009-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T22:30:11.009128 y 2025-05-27T22:40:11.009128
+2025-05-27T22:30:11.009-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T22:30:11.009-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T22:30:29.443-05:00  INFO 9434 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27T22:30:29.443-05:00  INFO 9434 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-27T22:30:29.444-05:00  INFO 9434 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-27T22:30:41.013-05:00 DEBUG 9434 --- [         task-2] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:30:41.014-05:00 DEBUG 9434 --- [         task-2] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:30:41.014-05:00 DEBUG 9434 --- [         task-2] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:30:54.543-05:00  INFO 9434 --- [nio-8080-exec-4] c.e.u.m.d.s.cliente.CrearClienteService  : Cliente creado exitosamente: 12345678 - Juan
+2025-05-27T22:30:54.544-05:00  INFO 9434 --- [         task-3] c.e.u.m.i.n.GestorNotificaciones         : Enviando notificación inmediata: 9676e0e5-c731-430d-a645-50a45b8b6b9c
+2025-05-27T22:30:54.544-05:00  INFO 9434 --- [nio-8080-exec-4] c.e.u.m.d.s.cliente.CrearClienteService  : Notificación de bienvenida programada para: Juan (juan@test.com)
+2025-05-27T22:30:54.544-05:00  INFO 9434 --- [         task-3] c.e.u.m.i.notificaciones.ServicioEmail   : Enviando notificación por email: 9676e0e5-c731-430d-a645-50a45b8b6b9c a juan@test.com
+2025-05-27T22:30:57.633-05:00  INFO 9434 --- [         task-3] c.e.u.m.i.notificaciones.ServicioEmail   : Notificación enviada exitosamente: 9676e0e5-c731-430d-a645-50a45b8b6b9c
+2025-05-27T22:30:57.633-05:00  INFO 9434 --- [         task-3] c.e.u.m.i.n.GestorNotificaciones         : Notificación inmediata 9676e0e5-c731-430d-a645-50a45b8b6b9c enviada exitosamente
+2025-05-27T22:30:57.633-05:00  INFO 9434 --- [         task-3] c.e.u.m.i.n.ServicioAlertas              : Notificación de bienvenida enviada a: juan@test.com
+2025-05-27T22:31:11.014-05:00 DEBUG 9434 --- [         task-4] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:31:11.014-05:00 DEBUG 9434 --- [         task-4] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:31:11.014-05:00 DEBUG 9434 --- [         task-4] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+DEBUG: Buscando cuenta para cliente: 12345678
+DEBUG: CuentaDao instance: co.edu.uniquindio.monedero.infraestructura.adaptador.cuenta.CuentaImplementacionDAO
+DEBUG: Existe cuenta: true
+DEBUG: Cuenta encontrada: 556744248450065
+2025-05-27T22:31:41.019-05:00 DEBUG 9434 --- [         task-5] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:31:41.020-05:00 DEBUG 9434 --- [         task-5] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:31:41.020-05:00 DEBUG 9434 --- [         task-5] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:32:11.008-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T22:32:11.009-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T22:32:11.009-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $500.0
+2025-05-27T22:32:11.009-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T22:32:11.010-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.GestorNotificaciones         : Agendando notificación: c876ea8d-aa52-49fb-b18c-4a47e8616d35 para juan@test.com
+2025-05-27T22:32:11.011-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ListaCircularNotificaciones  : Notificación agregada: c876ea8d-aa52-49fb-b18c-4a47e8616d35 - Tamaño actual: 1
+2025-05-27T22:32:11.011-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.GestorNotificaciones         : Notificación c876ea8d-aa52-49fb-b18c-4a47e8616d35 agregada exitosamente a la lista circular
+2025-05-27T22:32:11.011-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo agendada para cuenta: 556744248450065 - Saldo: $500.0
+2025-05-27T22:32:11.011-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T22:32:11.011-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T22:32:11.011-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T22:32:11.011293 y 2025-05-27T22:42:11.011293
+2025-05-27T22:32:11.011-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T22:32:11.011-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T22:32:11.021-05:00 DEBUG 9434 --- [         task-6] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:32:11.022-05:00 DEBUG 9434 --- [         task-6] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:32:11.022-05:00 DEBUG 9434 --- [         task-6] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 1 notificaciones con prioridad: ALTA
+2025-05-27T22:32:11.022-05:00 DEBUG 9434 --- [         task-6] c.e.u.m.i.n.GestorNotificaciones         : Procesando notificación: c876ea8d-aa52-49fb-b18c-4a47e8616d35
+2025-05-27T22:32:11.022-05:00  INFO 9434 --- [         task-6] c.e.u.m.i.notificaciones.ServicioEmail   : Enviando notificación por email: c876ea8d-aa52-49fb-b18c-4a47e8616d35 a juan@test.com
+2025-05-27T22:32:13.526-05:00  INFO 9434 --- [         task-6] c.e.u.m.i.notificaciones.ServicioEmail   : Notificación enviada exitosamente: c876ea8d-aa52-49fb-b18c-4a47e8616d35
+2025-05-27T22:32:13.527-05:00 DEBUG 9434 --- [         task-6] c.e.u.m.i.n.ListaCircularNotificaciones  : Notificación marcada como procesada: c876ea8d-aa52-49fb-b18c-4a47e8616d35 - Tamaño actual: 0
+2025-05-27T22:32:13.527-05:00  INFO 9434 --- [         task-6] c.e.u.m.i.n.GestorNotificaciones         : Notificación c876ea8d-aa52-49fb-b18c-4a47e8616d35 enviada exitosamente
+DEBUG: Buscando cuenta para cliente: 12345678
+DEBUG: CuentaDao instance: co.edu.uniquindio.monedero.infraestructura.adaptador.cuenta.CuentaImplementacionDAO
+DEBUG: Existe cuenta: true
+DEBUG: Cuenta encontrada: 556744248450065
+2025-05-27T22:32:41.027-05:00 DEBUG 9434 --- [         task-7] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:32:41.028-05:00 DEBUG 9434 --- [         task-7] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:32:41.028-05:00 DEBUG 9434 --- [         task-7] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:33:11.032-05:00 DEBUG 9434 --- [         task-8] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:33:11.032-05:00 DEBUG 9434 --- [         task-8] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:33:11.032-05:00 DEBUG 9434 --- [         task-8] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:33:41.035-05:00 DEBUG 9434 --- [         task-9] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:33:41.035-05:00 DEBUG 9434 --- [         task-9] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:33:41.035-05:00 DEBUG 9434 --- [         task-9] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:34:11.011-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de saldos bajos. Umbral: $10000.0
+2025-05-27T22:34:11.012-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando clientes con cuentas con saldo mayor a 0 y menor a 2000
+2025-05-27T22:34:11.013-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Cliente encontrado con saldo bajo: Juan - Cuenta: 556744248450065 - Saldo: $350.0
+2025-05-27T22:34:11.013-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 1 clientes con saldo bajo (entre $0 y $2000)
+2025-05-27T22:34:11.013-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Alerta de saldo bajo ya enviada recientemente para cuenta: 556744248450065
+2025-05-27T22:34:11.013-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de saldos bajos completada. 1 clientes procesados
+2025-05-27T22:34:11.013-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Iniciando revisión de transacciones programadas
+2025-05-27T22:34:11.013-05:00 DEBUG 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Buscando transacciones programadas entre 2025-05-27T22:34:11.013799 y 2025-05-27T22:44:11.013799
+2025-05-27T22:34:11.013-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Se encontraron 0 transacciones programadas para notificar
+2025-05-27T22:34:11.014-05:00  INFO 9434 --- [   scheduling-1] c.e.u.m.i.n.ServicioAlertas              : Revisión de transacciones programadas completada. 0 transacciones procesadas
+2025-05-27T22:34:11.035-05:00 DEBUG 9434 --- [        task-10] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:34:11.035-05:00 DEBUG 9434 --- [        task-10] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:34:11.035-05:00 DEBUG 9434 --- [        task-10] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:34:41.040-05:00 DEBUG 9434 --- [        task-11] c.e.u.m.i.n.GestorNotificaciones         : Iniciando procesamiento de notificaciones pendientes
+2025-05-27T22:34:41.040-05:00 DEBUG 9434 --- [        task-11] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: CRITICA
+2025-05-27T22:34:41.040-05:00 DEBUG 9434 --- [        task-11] c.e.u.m.i.n.ListaCircularNotificaciones  : Encontradas 0 notificaciones con prioridad: ALTA
+2025-05-27T22:34:41.040-05:00  INFO 9434 --- [        task-11] c.e.u.m.i.n.GestorNotificaciones         : Estadísticas de notificaciones: EstadisticasListaCircular{tamaño=0, capacidad=100, uso=0,00%, lectura=1, escritura=1}

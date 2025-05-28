@@ -1,6 +1,7 @@
 package co.edu.uniquindio.monedero.dominio.puerto.transaccion;
 
 import co.edu.uniquindio.monedero.dominio.modelo.TransaccionProgramada;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TransaccionProgramadaRepositorio {
@@ -9,4 +10,5 @@ public interface TransaccionProgramadaRepositorio {
     TransaccionProgramada buscarPorId(String id);
     List<TransaccionProgramada> buscarPorNumeroCliente(String numeroCliente);
     List<TransaccionProgramada> obtenerTransaccionesActivas();
+    List<TransaccionProgramada> buscarPorFechaEjecucionEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 } 
